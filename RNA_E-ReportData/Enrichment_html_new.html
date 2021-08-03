@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Enrinchment analysis</title>
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<ul id="myTab" class="nav nav-tabs">
+	<li class="active">
+		<a href ="#over" data-toggle="tab">over-representation test</a>
+	</li> 
+    <li>
+		<a href="#GSEA" data-toggle="tab">Gene Set Enrichment Analysis</a>
+	</li> 
+	<!--<li><a href="#PPI" data-toggle="tab">Protein-Protein interaction</a></li>-->
+</ul>
+
+<div id ="myTabContent" class ="tab-content"> 
+	<!--<div id="top-bar" align=center>
+		<div id="menu">
+			<b>Download</b>
+			<br>
+			All_DATA
+		</div>
+	</div>-->
+	<div class = "tab-pane fade in activ" id = "over" align=center>
+		<h2>GO Enrichment - MF</h2>
+		<table width="95%" border="1">
+			MF_DATA
+			<!--GO Enrichment MF-->
+			</table>
+			<h2>GO Enrichment - BP</h2>
+			<table width="95%" border="1">
+
+			BP_DATA
+			<!--GO Enrichment BP-->
+			</table>
+			<h2>GO Enrichment - CC</h2>
+			<table width="95%" border="1">
+
+			CC_DATA
+			<!--GO Enrichment CC-->
+			</table>
+			<h2>KEGG Pathway Enrichment</h2>
+			<table width="95%" border="1">
+
+			KK_DATA
+			<!--KEGG Pathway Enrichment-->
+			</table>
+			<h2>DO Enrichment</h2>
+			<table width="95%" border="1">
+
+			DO_DATA
+			<!--DO Enrichment-->
+			</table>
+		</table>
+	</div>
+
+	<div align=center class = "tab-pane fade" id = "GSEA">
+		<h2>GO Enrichment - MF</h2>
+		<table width="95%" border="1">
+
+			MF_G_DATA
+			<!--GO Enrichment MF-->
+			</table>
+			<h2>GO Enrichment - BP</h2>
+			<table width="95%" border="1">
+
+			BP_G_DATA
+			<!--GO Enrichment BP-->
+			</table>
+			<h2>GO Enrichment - CC</h2>
+			<table width="95%" border="1">
+
+			CC_G_DATA
+			<!--GO Enrichment CC-->
+			</table>
+			<h2>KEGG Pathway Enrichment</h2>
+			<table width="95%" border="1">
+
+			KK_G_DATA
+			<!--KEGG Pathway Enrichment-->
+			</table>
+
+		</table>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('#myTab li:eq(1) a').tab('show');
+	});
+</script>
+<br>
+</body>
+</html>

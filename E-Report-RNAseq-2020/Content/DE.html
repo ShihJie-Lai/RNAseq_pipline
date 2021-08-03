@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Welgene NGS E-Report</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link href="../assets/plugins/isotope/isotope.css" rel="stylesheet" media="screen" />
+    <link href="../assets/plugins/IconHoverEffects-master/css/component.css" rel="stylesheet" />
+    <link href="../assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/about-achivements.css" rel="stylesheet" />
+    <link id="mainStyle" href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/ngsReport.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="../assets/plugins/fancybox_3.5.6/jquery.fancybox.css" rel="stylesheet" />
+	    <style>
+		.whiteFont{
+		 color:#FFF;
+		}
+		.spaceTop{
+			margin-top: 25px;
+		}
+		.spaceBottom{
+			margin-bottom: 25px;
+		}
+	</style>
+    <script src="../assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/scrollReveal.js"></script>
+    <script>
+        window.scrollReveal = new scrollReveal(); //please put this script here to show animation at the time of scroll
+    </script>
+	<script src="../assets/js/jquery.easing.1.3.js"></script>
+	<script src="../assets/plugins/bootstrap/bootstrap.min.js"></script>    
+	<script src="../assets/plugins/isotope/jquery.isotope.min.js"></script>
+	<script src="../assets/plugins/fancybox_3.5.6/jquery.fancybox.js"></script>
+	<script src="../assets/js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="../assets/js/jquery.appear.js"></script>
+    <script src="../assets/js/velocity.min.js"></script>
+</head>
+<body>
+
+    <section id="section-about" class="section" align=left>
+        <div class="container" data-scrollreveal='after 0.30s'>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8" >
+                    <div >
+			
+                        <h2 class="heading">Differential Gene Expression Analysis</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="container" data-scrollreveal='wait 0.10s' align=center>
+<br>
+<table width="85%" border="3">
+  <tbody>
+    <tr>
+      <td colspan="7"><strong><font color="red">Differential Gene Expression Analysis</font></strong></td>
+    </tr>
+    <tr>
+      <td><strong><font color="red">Design</font></strong></td>
+      <td><strong><font color="red">Gene Level</font></strong></td>
+      <td><strong><font color="red">Transcript Level</font></strong></td>
+      <td><strong><font color="red">Gene Set Enrichment</font></strong></td>
+	  <td><strong><font color="red">GO Term Analyis</font></strong></td>
+    </tr>
+<!----------Set_Write_Here----------->
+	<tr>
+	<td colspan="7">By default, we set p-value cut off to 0.05 and abs(log2FC) cut off to 1 for discovering differential genes.<br>
+							   P-value calculated by DEseq with non-grouped sample used "blind mode", <BR>
+which all samples were treated as replicates of a single global "condition" and used to build one model for statistic test.<br> The q-value of a test measures the proportion of false positives incurred (called the false discovery rate) when that particular test is called significant.<br>Without enough replicates for a test, q-value might over-estimate the FDR, so we would not set a cutoff of q-value in our data by defalut.
+							   
+							</td>
+	</tr>
+</table>
+<br>
+<table width="85%" border="3" >
+  <tbody>
+    <tr class="tabletitle">
+      <td colspan="2" ><strong><font color="red">Information on Enrichment Analysis</font></strong></td>
+	  
+    </tr>
+	
+    <tr>
+      <td><b><font color="red">GeneRatio</font></b></td>
+	  <td align="left">Genes involved in this annotation from differentially expressed genes / Differentially expressed genes.</td>
+    </tr>
+
+    <tr>
+      <td><b><font color="red">BgRatio</font></b></td>
+	  <td align="left">Genes involved in this annotation / Global gene number from annotation database.</td>
+    </tr>
+
+    <tr>
+      <td><b><font color="red">p-value</font></b></td>
+	  <td align="left">Hypergeometric p-value calculated as the probability of randomly drawing</td>
+    </tr>
+    <tr >
+      <td><b><font color="red">q-value</font></b></td>
+	  <td align="left">Characteristics of the p-value distribution by Benjamini–Hochberg procedure (BH step-up procedure).</td>
+    </tr>
+	 <tr >
+      <td><b><font color="red">p-value adjusted</font></b></td>
+	  <td align="left">p-value adjusted by FDR for significance discovering.</td>
+    </tr>
+	
+  </tbody>
+</table>
+<br>
+<br>
+<table width="85%" border="3">
+    <tr>
+      <td colspan="5"><strong><font color="red">Analysis Process</font></strong></td>
+    </tr>
+	<tr>
+		<td><ul>
+		  <li>Differential expression analysis was performed using  <a data-fancybox data-type="iframe" data-src="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4643835/" href="javascript:;"><strong>StringTie</strong> (StringTir v2.1.4)</a> and <a data-fancybox data-type="iframe" data-src="https://pubmed.ncbi.nlm.nih.gov/20979621/" href="javascript:;"><strong>DEseq</strong> (DEseq v1.39.0)</a> or <a data-fancybox data-type="iframe" data-src="https://pubmed.ncbi.nlm.nih.gov/25516281/" href="javascript:;"><strong>DEseq2</strong> (DEseq2 v1.28.1)</a> with genome bias detection/correction and Welgene Biotech's in-house pipeline. </li>
+		  <li>Functional enrichment assay in differentially expressed  genes of each experiment design was performed  using <a data-fancybox data-type="iframe" data-src="https://www.ncbi.nlm.nih.gov/pubmed/22455463" href="javascript:;"><strong>clusterProfiler</strong> v3.6</a>.	      </li>
+		<li> Genes with low expression level (< 0.3 TPM value) in either or both of the treated and control samples were excluded. </li>
+		  <!----------Set_pFC_Here-----------><li>Genes with <em>p</em> value ≤ 0.05 and ≥ 2-fold changes were  considered significantly differentially expressed. <br>
+	      </li>
+		<li>To learn more about DEG & DET, refer <a data-fancybox data-type="iframe" data-src="../assets/info/description.html" href="javascript:;"><strong>here</strong></a></li>
+		  </ul>
+		  <p><br>
+		    <strong>Reference</strong><br>
+	      <ol>
+	        <li><a data-fancybox data-type="iframe" data-src="https://www.ncbi.nlm.nih.gov/pubmed/27560171" href="javascript:;">Pertea, Mihaela, et al. "Transcript-level expression analysis of RNA-seq experiments with HISAT, StringTie and Ballgown." Nature protocols 11.9 (2016): 1650-1667.</a></li>
+	        <li><a data-fancybox data-type="iframe" data-src="https://www.ncbi.nlm.nih.gov/pubmed/22455463" href="javascript:;">Yu, Guangchuang, et al. "clusterProfiler: an R package for comparing biological themes among gene clusters." Omics: a journal of integrative biology 16.5 (2012): 284-287.</a></li>
+        </ol>        
+        </td>
+	</tr>
+</table>    
+</div>
+<br />
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Welgene NGS E-Report</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link href="../assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link id="mainStyle" href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/ngsReport.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="../assets/plugins/fancybox_3.5.6/jquery.fancybox.css" rel="stylesheet" />
+
+    <style>
+		.whiteFont{
+		 color:#FFF;
+		}
+		.spaceTop{
+			margin-top: 25px;
+		}
+		.spaceBottom{
+			margin-bottom: 25px;
+		}
+	</style>
+    <script src="../assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/scrollReveal.js"></script>
+    <script>
+        window.scrollReveal = new scrollReveal(); //please put this script here to show animation at the time of scroll
+    </script>
+	<script src="../assets/js/jquery.easing.1.3.js"></script>
+	<script src="../assets/plugins/bootstrap/bootstrap.min.js"></script>    
+	<script src="../assets/plugins/isotope/jquery.isotope.min.js"></script>
+	<script src="../assets/plugins/fancybox_3.5.6/jquery.fancybox.js"></script>
+	<script src="../assets/js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="../assets/js/jquery.appear.js"></script>
+    <script src="../assets/js/velocity.min.js"></script>
+</head>
+<body>
+    <section id="section-about" class="section" align=left>
+        <div class="container" data-scrollreveal='after 0.30s'>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8" >
+                    <div >
+			
+                        <h2 class="heading" >GO & KEGG Enrichment Analysis</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="container"  align=center>
+<br>
+<table width="85%" border="3">
+  <tr>
+    <td><h2>Top 20 Enriched Terms</h2></td>
+   </tr>
+  <tr>
+    <td><h3>Gene Ontology</h3></td>
+   </tr>   
+  <tr>
+    <td><a href="FuckYouDamnit/ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/ILOVESPURS_bar.png" width="600" height="300"></a></td>
+  </tr>
+
+  <tr>
+    <td><h3>KEGG Pathway</h3></td>
+   </tr>   
+  <tr>
+    <td><a href="FuckYouDamnit/KK_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+  </tr>
+  <tr>
+  <td>
+    Defalut set to top20 enriched terms. 
+  </td>
+</tr>  
+</table>
+
+<br>
+<br>
+<table width="85%" border="3">
+  <tr>
+    <td><h2>Cnetplot</h2></td>
+   </tr>
+  <tr>
+    <td><h3>Gene-Concept Network</h3></td>
+   </tr>   
+  <tr>
+    <td><a href="FuckYouDamnit/ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/ILOVESPURS_cent.png" width="600" height="600" ></a></td>
+  </tr>
+  
+  
+  <tr>
+  <td>
+ cnetplot could find  the relationship between genes with multiple annotation categories.
+  </td>
+</tr>  
+</table>  
+<br>
+<p>
+<table width="85%"> 
+<tr><td align=left><h3>Reference:</h3></td></tr>
+
+<tr><td><a href="http://online.liebertpub.com/doi/abs/10.1089/omi.2011.0118">Yu, Guangchuang, et al. "clusterProfiler: an R package for comparing biological themes among gene clusters." Omics: a journal of integrative biology 16.5 (2012): 284-287.</a></td></tr>
+</table> 
+</div>
+</body>
+</html>

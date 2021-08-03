@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Enrinchment analysis</title>
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<ul id="myTab" class="nav nav-tabs">
+    <li class="dropdown">
+        <a href="#over" id="myTabDrop1" class="dropdown-toggle"
+           data-toggle="dropdown">over-representation test <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#BP" tabindex="-1" data-toggle="tab">
+                    BP</a>
+            </li>
+            <li><a href="#MF" tabindex="-1" data-toggle="tab">
+                    MF</a>
+            </li>
+			<li><a href="#CC" tabindex="-1" data-toggle="tab">
+                    CC</a>
+            </li>
+			<li><a href="#KEGG" tabindex="-1" data-toggle="tab">
+                    KEGG</a>
+            </li>
+			<li><a href="#DO" tabindex="-1" data-toggle="tab">
+                    DO</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#GSEA" id="myTabDrop2" class="dropdown-toggle"
+           data-toggle="dropdown">Gene Set Enrichment Analysis <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+            <li><a href="#BP_G" tabindex="-1" data-toggle="tab">
+                    BP</a>
+            </li>
+            <li><a href="#MF_G" tabindex="-1" data-toggle="tab">
+                    MF</a>
+            </li>
+			<li><a href="#CC_G" tabindex="-1" data-toggle="tab">
+                    CC</a>
+            </li>
+			<li><a href="#KEGG_G" tabindex="-1" data-toggle="tab">
+                    KEGG</a>
+            </li>
+        </ul>
+    </li>
+	<!--<li><a href="#PPI" data-toggle="tab">Protein-Protein interaction</a></li>-->
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="BP">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: BP (Biological Process)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Bar Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				 It depicts the enrichment scores (e.g. p values) and gene count or ratio as bar height and color. 
+			</td>
+			</tr>  
+			<tr>
+			<td><h3>pyramid Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_py.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_py.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				lx and rx are the values specifying the left and right extents of the left and right bars respectively. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_dot.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Dot plot is similar to bar plot with the capability to encode another score as dot size. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				In order to consider the potentially biological complexities in which a gene may belong to multiple annotation categories and provide information of numeric changes if available
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_emapplot.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.  
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>goplot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_GO.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_GO.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Goplot can accept output of GO analysis and visualized the GO analysis induced graph. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/BP_ILOVESPURS_GOP.png" target="_blank"><img src="FuckYouDamnit/BP_ILOVESPURS_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				GO Hierarchy plot by significant enrichment term. Significant level descend from "red" to "yellow". 
+			</td>
+			</tr> 
+		</table>
+    </div>
+	<div class="tab-pane fade in active" id="MF">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: MF (Molecular Function)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Bar Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				It depicts the enrichment scores (e.g. p values) and gene count or ratio as bar height and color.
+			</td>
+			</tr>  
+			<tr>			
+			<td><h3>pyramid Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_py.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_py.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				lx and rx are the values specifying the left and right extents of the left and right bars respectively. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_dot.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Dot plot is similar to bar plot with the capability to encode another score as dot size. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				In order to consider the potentially biological complexities in which a gene may belong to multiple annotation categories and provide information of numeric changes if available.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_emapplot.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>goplot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_GO.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_GO.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Goplot can accept output of GO analysis and visualized the GO analysis induced graph. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/MF_ILOVESPURS_GOP.png" target="_blank"><img src="FuckYouDamnit/MF_ILOVESPURS_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				GO Hierarchy plot by significant enrichment term. Significant level descend from "red" to "yellow". 
+			</td>
+			</tr>  
+		</table>
+    </div>
+	<div class="tab-pane fade in active" id="CC">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: CC (Cellular Component)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Bar Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				It depicts the enrichment scores (e.g. p values) and gene count or ratio as bar height and color.
+			</td>
+			</tr>  
+			
+			<tr>
+			<td><h3>pyramid Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_py.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_py.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				lx and rx are the values specifying the left and right extents of the left and right bars respectively. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_dot.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Dot plot is similar to bar plot with the capability to encode another score as dot size. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				In order to consider the potentially biological complexities in which a gene may belong to multiple annotation categories and provide information of numeric changes if available.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_emapplot.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>goplot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_GO.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_GO.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Goplot can accept output of GO analysis and visualized the GO analysis induced graph. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/CC_ILOVESPURS_GOP.png" target="_blank"><img src="FuckYouDamnit/CC_ILOVESPURS_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				GO Hierarchy plot by significant enrichment term. Significant level descend from "red" to "yellow". 
+			</td>
+			</tr> 
+			
+		</table>
+    </div>
+	
+<div class="tab-pane fade in active" id="KEGG">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>KEGG (Kyoto Encyclopedia of Genes and Genomes)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Bar Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/KK_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				It depicts the enrichment scores (e.g. p values) and gene count or ratio as bar height and color.
+			</td>
+			</tr>  
+			
+			<tr>
+			<td><h3>pyramid Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/KK_ILOVESPURS_py.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_py.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				lx and rx are the values specifying the left and right extents of the left and right bars respectively. 
+			</td>
+			</tr> 
+			
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/KK_ILOVESPURS_dot.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Dot plot is similar to bar plot with the capability to encode another score as dot size. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/KK_ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				In order to consider the potentially biological complexities in which a gene may belong to multiple annotation categories and provide information of numeric changes if available.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/KK_ILOVESPURS_emapplot.png" target="_blank"><img src="FuckYouDamnit/KK_ILOVESPURS_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.
+			</td>
+			</tr> 
+			
+		</table>
+    </div>	
+	
+<div class="tab-pane fade in active" id="DO">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>DO (Disease Ontology analysis)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Bar Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/DO_ILOVESPURS_bar.png" target="_blank"><img src="FuckYouDamnit/DO_ILOVESPURS_bar.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				It depicts the enrichment scores (e.g. p values) and gene count or ratio as bar height and color.
+			</td>
+			</tr>  
+			<tr>
+			<td><h3>pyramid Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/DO_ILOVESPURS_py.png" target="_blank"><img src="FuckYouDamnit/DO_ILOVESPURS_py.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				lx and rx are the values specifying the left and right extents of the left and right bars respectively. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/DO_ILOVESPURS_dot.png" target="_blank"><img src="FuckYouDamnit/DO_ILOVESPURS_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Dot plot is similar to bar plot with the capability to encode another score as dot size. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/DO_ILOVESPURS_cent.png" target="_blank"><img src="FuckYouDamnit/DO_ILOVESPURS_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				In order to consider the potentially biological complexities in which a gene may belong to multiple annotation categories and provide information of numeric changes if available.
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit/DO_ILOVESPURS_emapplot.png" target="_blank"><img src="FuckYouDamnit/DO_ILOVESPURS_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.
+			</td>
+			</tr> 
+			
+		</table>
+    </div>	
+	
+	
+	<!-- -->
+	
+	
+	
+    <div class="tab-pane fade in active" id="BP_G">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: BP (Biological Process)</h2></td>
+			</tr>
+			
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_dot.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_GOP.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_cent.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_emapplot.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>ridgeline plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_ridge.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_ridge.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GSEA result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea1.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea2.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea3.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea4.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea5.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsea5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+			
+			<tr>
+			<td><h3>GSEA rank result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank1.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank2.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank3.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank4.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank5.png" target="_blank"><img src="FuckYouDamnit_GSEA/BP_ILOVESPURS_GSEA_gsearank5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>			
+			
+			
+			
+		</table>
+    </div>
+	<div class="tab-pane fade in active" id="MF_G">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: MF (Molecular Function)</h2></td>
+			</tr>
+						<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_dot.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_GOP.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_cent.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_emapplot.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>ridgeline plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_ridge.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_ridge.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GSEA result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea1.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea2.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea3.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea4.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea5.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsea5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+			
+			<tr>
+			<td><h3>GSEA rank result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank1.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank2.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank3.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank4.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank5.png" target="_blank"><img src="FuckYouDamnit_GSEA/MF_ILOVESPURS_GSEA_gsearank5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>	
+		</table>
+    </div>
+	<div class="tab-pane fade in active" id="CC_G">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>GO: CC (Cellular Component)</h2></td>
+			</tr>
+						<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_dot.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>GO Hierarchy Plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_GOP.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_GOP.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+			
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_cent.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_emapplot.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>ridgeline plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_ridge.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_ridge.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GSEA result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea1.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea2.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea3.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea4.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea5.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsea5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+			
+			<tr>
+			<td><h3>GSEA rank result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank1.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank2.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank3.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank4.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank5.png" target="_blank"><img src="FuckYouDamnit_GSEA/CC_ILOVESPURS_GSEA_gsearank5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+		</table>
+    </div>
+	
+<div class="tab-pane fade in active" id="KEGG_G">
+        <table width="85%" border="3">
+			<tr>
+			<td><h2>KEGG (Kyoto Encyclopedia of Genes and Genomes)</h2></td>
+			</tr>
+			<tr>
+			<td><h3>Dot plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_dot.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_dot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>  
+
+			<tr>
+			<td><h3>Gene-Concept Network</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_cent.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_cent.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>Enrichment Map</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_emapplot.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_emapplot.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>ridgeline plot</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_ridge.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_ridge.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr> 
+			
+			<tr>
+			<td><h3>GSEA result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea1.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea2.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea3.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea4.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea5.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsea5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>
+			
+			
+			<tr>
+			<td><h3>GSEA rank result</h3></td>
+			</tr>   
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank1.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank1.png" width="600" height="300"></a></td>
+			</tr>
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank2.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank2.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank3.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank3.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank4.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank4.png" width="600" height="300"></a></td>
+			</tr> 
+			<tr>
+			<td><a href="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank5.png" target="_blank"><img src="FuckYouDamnit_GSEA/KK_ILOVESPURS_GSEA_gsearank5.png" width="600" height="300"></a></td>
+			</tr> 			
+			<tr>
+			<td>
+				Defalut set to top20 enriched terms. 
+			</td>
+			</tr>	
+			
+		</table>
+    </div>	
+	
+</div>
+<script>
+    $(function () {
+        $('#myTab li:eq(1) a').tab('show');
+    });
+</script>

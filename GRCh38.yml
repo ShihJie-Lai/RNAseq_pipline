@@ -1,0 +1,13 @@
+name: hg19
+tools:
+  bwa: /opt/miniconda3/envs/RNAseq2/bin/bwa
+  hisat2: /usr/local/genome/hisat2-2.1.0/hisat2
+  stringtie: /usr/local/genome/_RNAseq/stringtie-2.1.3b.Linux_x86_64/stringtie
+  samtools: /usr/local/genome/samtools-1.9/bin/samtools
+
+
+reference:
+  fasta: /export/md1/databases/HISAT2_index/Ensembl_r101/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+  gtf: /export/md1/databases/GTF_Ann/Release_101/Homo_sapiens.GRCh38.101.gtf
+  bwa_index: /export/intelSSD2/bwaIndex_GRCh38/genome.fa
+  hisat_index: /export/md1/databases/HISAT2_index/Ensembl_r101/Homo_sapiens.GRCh38.dna.primary_assembly

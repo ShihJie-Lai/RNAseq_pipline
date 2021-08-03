@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Welgene NGS E-Report</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link href="../assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link id="mainStyle" href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/ngsReport.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="../assets/plugins/fancybox_3.5.6/jquery.fancybox.css" rel="stylesheet" />
+
+    <style>
+		.whiteFont{
+		 color:#FFF;
+		}
+		.spaceTop{
+			margin-top: 25px;
+		}
+		.spaceBottom{
+			margin-bottom: 25px;
+		}
+	</style>
+    <script src="../assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/scrollReveal.js"></script>
+    <script>
+        window.scrollReveal = new scrollReveal(); //please put this script here to show animation at the time of scroll
+    </script>
+	<script src="../assets/js/jquery.easing.1.3.js"></script>
+	<script src="../assets/plugins/bootstrap/bootstrap.min.js"></script>    
+	<script src="../assets/plugins/isotope/jquery.isotope.min.js"></script>
+	<script src="../assets/plugins/fancybox_3.5.6/jquery.fancybox.js"></script>
+	<script src="../assets/js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="../assets/js/jquery.appear.js"></script>
+    <script src="../assets/js/velocity.min.js"></script>
+</head>
+<body>
+    <section id="section-about" class="section" align=left>
+        <div class="container" data-scrollreveal='after 0.30s'>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8" >
+                    <div >
+			
+                        <h2 class="heading">Read Alignment</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="container" align=center>
+<table width="85%" border="3">
+  <tbody>
+    <tr>    	
+<td width="100%">
+<strong><font color="red">Alignment Tool: HISAT2</font></strong>
+</td>
+ </tr>
+	<tr>
+<td width="100%"><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4655817/" target="_blank">
+<strong>HISAT2</strong></a> is a fast and sensitive alignment program for mapping next-generation sequencing reads to genomes.<br>
+The new indexing scheme of HISAT2 is based on hierarchical graph FM index (GFM index). HISAT2 using global GFM index and a large set of small GFM indexes that collectively cover the whole genome for rapid and accurate alignment. <br>
+Furthermore, small GFM index sets come with a great performance for splicing junction alignment, so HISAT2 could be an effective tool for transcriptome alignment.
+To learn more about GFM indexes, refer <a href="https://www.ncbi.nlm.nih.gov/pubmed/26355784" target="_blank">here</a> for details.
+<br></tr>	
+  </tbody>
+</table>
+<br>
+<table width="85%" border="3">
+  <tbody>
+    <tr align="center">
+      <td colspan="3"><div align="left"><strong><font color="red">Alignment Result (<a href="<!--FOR_Database_Web-->" target="_blank">Database used</a>)</font></strong></div></td>
+    </tr>
+    <tr align="center">
+      <td width="50%"><font color="red">Sample</font></td>
+      <td width="50%"><font color="red">Mapping Rate (%)</font></td>
+    </tr>
+<!--Here_is_mapping_information_insert-->
+  </tbody>
+</table>
+<br>
+<table width="85%" border="3">
+  <tbody>
+    <tr align="center">
+      <td colspan="3"><div align="left"><strong><font color="red">Primary Data (Read count & <a href="../assets/info/TPM.png" target="_blank">TPM</a>)</font></strong></div></td>
+    </tr>
+    <tr align="center">
+      <td width="20%"><b>Gene</b></td>	
+      <td width="40%"><img src="../assets/img/icon/XLSX.png" height="64" width="64"><a href="Expression_Table/Gene_TPM.xlsx" download> TPM</a></td>
+      <td width="40%"><img src="../assets/img/icon/XLSX.png" height="64" width="64"><a href="Expression_Table/Gene_Count.xlsx" download> Read Count</a></td>
+    </tr>
+    <tr align="center">
+      <td width="20%"><b>Transcript</b></td>	
+      <td width="40%"><img src="../assets/img/icon/XLSX.png" height="64" width="64"><a href="Expression_Table/TS_TPM.xlsx" download> TPM</a></td>
+      <td width="40%"><img src="../assets/img/icon/XLSX.png" height="64" width="64"><a href="Expression_Table/TS_Count.xlsx" download> Read Count</a></td>
+    </tr>	
+  </tbody>
+</table>
+<br>
+<table width="85%" border="3">
+  <tr>
+    <td><strong><font color="red">Density Plot</font></strong></td>
+    </tr>
+  <tr>
+    <td align="center"><img src="cummer/dens.png" width="600" height="600" /></td>
+  </tr>
+  <tr>
+  <td>
+  The density plot assesses the distributions of normalization gene expression across samples.
+  </td>
+</tr>  
+</table>
+<br>
+<table width="85%" border="3">
+  <tr>
+    <td><font color="red"><strong>Box Plot</strong></font></td>
+    </tr>
+  <tr>
+    <td align="center"><img src="cummer/box.png" width="600" height="600" /></td>
+  </tr>
+  <tr>
+  <td>
+  The box plot shows sample expression level through their quartiles and indicates variability.
+  </td>
+</tr>  
+</table>
+<br>
+<!--------------------VCplots------------------->
+<table width="85%" border="3">
+  <tr>
+    <td><strong><font color="red">Scatter Plot Matrix</font></strong></td>
+    </tr>
+  <tr>
+    <td align="center"><img src="cummer/csScatterMatrix.png" width="600" height="600" /></td>
+  </tr>
+  <tr>
+  <td>
+  The Scatter plot matrix shows the gene expression status for each sample pair.
+  </td>
+</tr>  
+</table>
+<br>
+<!--------------------SCplots------------------->
+<table width="85%" border="3">
+  <tr>
+    <td><strong><font color="red">PCA & JS Distance Map</font></strong></td>
+    </tr>
+  <tr>
+    <td align="center"><img src="cummer/pca.png" width="600" height="600" /></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="cummer/DistHeat.png" width="600" height="600" /></td>
+  </tr>  
+  <tr>
+  <td>
+    PCA & JS Distance Map estimates the correlation betweent samples. For detailed information on PCA/JS Distance:<br>
+	<a href="http://www.sciencedirect.com/science/article/pii/0169743987800849" target="_blank">1) PCA</a> <br>
+	<a href="http://www.math.ku.dk/~topsoe/ISIT2004JSD.pdf" target="_blank">2) JS Distance</a>
+  </td>
+</tr>  
+</table>
+</div>
+<br />
+</body>
+</html>
